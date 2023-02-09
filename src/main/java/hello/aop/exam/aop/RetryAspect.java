@@ -10,7 +10,10 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class RetryAspect {
     @Around("@annotation(retry)")
+    // @Around("@annotation(retry)")
     public Object doRetry(ProceedingJoinPoint joinPoint, Retry retry) throws Throwable {
+        System.out.println("RetryAspect doRetry");
+
         log.info("[retry] {} , retry={}", joinPoint.getSignature(), retry);
 
         int maxRetry = retry.value();

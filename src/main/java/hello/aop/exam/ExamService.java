@@ -1,5 +1,6 @@
 package hello.aop.exam;
 
+import hello.aop.exam.annotation.Authority;
 import hello.aop.exam.annotation.Trace;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,5 +14,10 @@ public class ExamService {
     @Trace
     public void request(String itemId) {
         examRepository.save(itemId);
+    }
+
+    @Authority
+    public void test() {
+        System.out.println("test");
     }
 }
